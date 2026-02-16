@@ -20,84 +20,141 @@ body {
 h1 {
     font-size: 52px;
     font-weight: 700;
+    color: #0B1F3F;
 }
 
 h2 {
     font-size: 34px;
     margin-bottom: 40px;
+    color: #0B1F3F;
 }
 
 h3 {
     font-size: 22px;
     margin-bottom: 15px;
+    color: #0B1F3F;
 }
 
 h4 {
     font-size: 18px;
     margin-bottom: 10px;
+    color: #0B1F3F;
 }
 
 p {
     font-size: 16px;
     color: #555;
+    line-height: 1.8;
 }
 
-.nav {
+/* ===== HEADER & NAVIGATION ===== */
+header.nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 25px 0;
+    background: #ffffff;
+    border-bottom: 1px solid #f0f0f0;
 }
 
 .logo {
     font-weight: 700;
+    font-size: 18px;
+    color: #0B1F3F;
+    letter-spacing: 0.5px;
 }
 
+/* ===== HERO SECTION ===== */
 .hero {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
-    padding: 80px 0;
+    padding: 120px 0;
+    background: linear-gradient(135deg, #0B1F3F 0%, #1a3a5c 100%);
+    margin: 0 -5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    color: #ffffff;
+    align-items: center;
+}
+
+.hero h1 {
+    color: #ffffff;
+    font-size: 64px;
+    line-height: 1.2;
+    margin-bottom: 20px;
 }
 
 .hero span {
     color: #1f4fff;
+    display: block;
+    font-size: 64px;
+}
+
+.hero-right p {
+    color: #e8e8e8;
+    font-size: 18px;
+    margin-bottom: 30px;
 }
 
 .subheadline {
     margin-top: 15px;
     font-size: 20px;
+    color: #d0d8e0;
 }
 
+/* ===== BUTTONS ===== */
 .btn-primary {
     display: inline-block;
     margin-top: 25px;
-    padding: 14px 28px;
+    padding: 16px 32px;
     background: #1f4fff;
     color: #ffffff;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid #1f4fff;
+}
+
+.btn-primary:hover {
+    background: #0d2dd4;
+    border-color: #0d2dd4;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(31, 79, 255, 0.3);
 }
 
 .btn-outline {
-    padding: 10px 20px;
-    border: 2px solid #1f4fff;
-    color: #1f4fff;
+    padding: 12px 24px;
+    border: 2px solid #0B1F3F;
+    color: #0B1F3F;
     text-decoration: none;
-    border-radius: 6px;
+    border-radius: 8px;
     font-weight: 600;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
+.btn-outline:hover {
+    background: #0B1F3F;
+    color: #ffffff;
+}
+
+/* ===== SERVICES SECTION ===== */
 .services {
-    background: #f5f5f5;
-    padding: 80px 0;
+    background: #f8f9fc;
+    padding: 100px 0;
+}
+
+.services h2 {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .grid-2 {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
+    gap: 40px;
 }
 
 .grid-3 {
@@ -108,13 +165,32 @@ p {
 
 .card {
     background: #ffffff;
-    padding: 35px;
-    border-radius: 8px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    padding: 45px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    border-left: 4px solid #1f4fff;
+    transition: all 0.3s ease;
 }
 
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    color: #0B1F3F;
+}
+
+/* ===== PROCESS SECTION ===== */
 .process {
-    padding: 80px 0;
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.process h2 {
+    text-align: center;
+    margin-bottom: 60px;
 }
 
 .process-grid {
@@ -123,49 +199,191 @@ p {
     gap: 30px;
 }
 
+.process-grid > div {
+    text-align: center;
+    padding: 40px 20px;
+    background: #f8f9fc;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+.process-grid > div:hover {
+    background: #0B1F3F;
+    color: #ffffff;
+    transform: translateY(-5px);
+}
+
+.process-grid > div:hover h4,
+.process-grid > div:hover p {
+    color: #ffffff;
+}
+
 .process-grid span {
-    font-size: 24px;
+    font-size: 36px;
     font-weight: 700;
     color: #1f4fff;
+    display: block;
+    margin-bottom: 15px;
 }
 
-.authority {
-    background: #f5f5f5;
-    padding: 80px 0;
-}
-
-.contact {
-    padding: 100px 0;
-    text-align: center;
-}
-
-footer {
-    background: #111111;
+.process-grid > div:hover span {
     color: #ffffff;
-    padding: 40px 0;
+}
+
+.process-grid h4 {
+    color: #0B1F3F;
+    margin-bottom: 12px;
+}
+
+.process-grid p {
     font-size: 14px;
+    color: #666;
+}
+
+/* ===== AUTHORITY SECTION ===== */
+.authority {
+    background: linear-gradient(135deg, #0B1F3F 0%, #1a3a5c 100%);
+    padding: 100px 0;
+    color: #ffffff;
+    margin: 0 -5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+.authority .container {
+    margin: 0 auto;
+}
+
+.authority h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.authority .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.authority h4 {
+    color: #1f4fff;
+    margin-bottom: 12px;
+}
+
+.authority p {
+    color: #e8e8e8;
+    line-height: 1.8;
+}
+
+/* ===== CONTACT SECTION ===== */
+.contact {
+    padding: 120px 0;
+    text-align: center;
+    background: #ffffff;
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+}
+
+.contact > p {
+    font-size: 18px;
+    color: #555;
+    margin-bottom: 40px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: #0B1F3F;
+    color: #ffffff;
+    padding: 50px 0;
+    font-size: 14px;
+}
+
+footer strong {
+    color: #1f4fff;
+    font-weight: 700;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    gap: 40px;
 }
 
+.footer-content div {
+    line-height: 1.8;
+    color: #d0d8e0;
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 900px) {
+    h1 {
+        font-size: 42px;
+    }
+
+    h2 {
+        font-size: 28px;
+    }
+
     .hero {
         grid-template-columns: 1fr;
+        padding: 80px 0;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero span {
+        font-size: 48px;
     }
 
     .grid-2,
-    .grid-3,
-    .process-grid {
+    .grid-3 {
         grid-template-columns: 1fr;
+    }
+
+    .process-grid {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .footer-content {
         flex-direction: column;
         gap: 20px;
         text-align: center;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 32px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero span {
+        font-size: 36px;
+    }
+
+    .hero {
+        padding: 60px 0;
+        gap: 30px;
+    }
+
+    .process-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 30px;
     }
 }
