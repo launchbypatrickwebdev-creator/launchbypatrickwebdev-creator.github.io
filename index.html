@@ -1,167 +1,229 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <title>Launch by Patrick | The Web Architect</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Structured digital foundations for established businesses. Website architecture, secure hosting, and performance-driven builds.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <title>Launch by Patrick | The Web Architect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #ffffff; }
+        h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
+        .bg-navy-dark { background-color: #0a0a0a; }
+        .accent-blue { color: #2563eb; }
+        .bg-accent-blue { background-color: #2563eb; }
+        .border-accent-blue { border-color: #2563eb; }
+        
+        /* Subtle Fade-in Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
 </head>
+<body x-data="{ mobileMenu: false }">
 
-<body>
-
-<header class="container nav">
-    <div class="logo">Launch by Patrick</div>
-    <a href="#contact" class="btn-outline">Schedule Consultation</a>
-</header>
-
-
-<!-- HERO -->
-<section class="hero container">
-    <div class="hero-content">
-        <h1>
-            The Web Architect
-        </h1>
-
-        <p class="subheadline">
-            Structured digital foundations for serious businesses.
-        </p>
-
-        <p class="hero-description">
-            We design, engineer, and launch high-performance websites built for
-            stability, scalability, and long-term growth.
-        </p>
-
-        <a href="#contact" class="btn-primary">Start a Conversation</a>
-    </div>
-</section>
-
-
-<!-- HERO IMAGE -->
-<section class="full-image">
-    <img src="images/hero.jpg" alt="Architectural workspace">
-</section>
-
-
-<!-- SERVICES -->
-<section class="services">
-    <div class="container">
-        <h2>What We Do</h2>
-
-        <div class="grid-2">
-            <div class="card">
-                <h3>Website Architecture</h3>
-                <p>Strategic planning and structured development designed for scalability and performance.</p>
+    <nav class="fixed w-full z-50 bg-navy-dark/90 backdrop-blur-md border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 border-2 border-white flex items-center justify-center relative">
+                    <span class="font-bold text-xl">L</span>
+                    <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-accent-blue"></div>
+                </div>
+                <div class="hidden md:block">
+                    <span class="block text-sm font-bold tracking-widest uppercase">Launch by Patrick</span>
+                    <span class="block text-[10px] text-gray-400 uppercase tracking-tighter">The Web Architect</span>
+                </div>
             </div>
 
-            <div class="card">
-                <h3>Secure Hosting</h3>
-                <p>Reliable deployment environments with strong security and uptime standards.</p>
+            <div class="hidden md:flex space-x-8 text-sm font-medium tracking-wide">
+                <a href="#vision" class="hover:text-blue-500 transition-colors">The Vision</a>
+                <a href="#process" class="hover:text-blue-500 transition-colors">My Process</a>
+                <a href="#about" class="hover:text-blue-500 transition-colors">About</a>
+                <a href="#contact" class="bg-accent-blue px-5 py-2 rounded-sm hover:bg-blue-700 transition-all">Strategy Session</a>
             </div>
 
-            <div class="card">
-                <h3>Performance Optimization</h3>
-                <p>Speed improvements, structural refinement, and technical efficiency enhancements.</p>
-            </div>
-
-            <div class="card">
-                <h3>Launch & Ongoing Support</h3>
-                <p>Deployment management and continued technical support after launch.</p>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<!-- PROCESS -->
-<section class="process container">
-    <h2>Our Process</h2>
-
-    <div class="process-grid">
-        <div>
-            <span>01</span>
-            <h4>Audit</h4>
-            <p>Evaluate structure, performance, and technical risks.</p>
+            <button @click="mobileMenu = !mobileMenu" class="md:hidden">
+                <i data-lucide="menu"></i>
+            </button>
         </div>
 
-        <div>
-            <span>02</span>
-            <h4>Structure</h4>
-            <p>Plan scalable architecture and technical foundation.</p>
+        <div x-show="mobileMenu" x-transition class="md:hidden bg-navy-dark border-b border-white/10 px-6 py-8 space-y-6">
+            <a @click="mobileMenu = false" href="#vision" class="block text-lg">The Vision</a>
+            <a @click="mobileMenu = false" href="#process" class="block text-lg">My Process</a>
+            <a @click="mobileMenu = false" href="#about" class="block text-lg">About</a>
+            <a @click="mobileMenu = false" href="#contact" class="block text-lg text-blue-500 font-bold">Strategy Session</a>
         </div>
+    </nav>
 
-        <div>
-            <span>03</span>
-            <h4>Build</h4>
-            <p>Implement clean, maintainable, production-grade code.</p>
+    <section id="vision" class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-blue-600/10 rounded-full blur-[120px]"></div>
+            <div class="absolute bottom-1/4 -right-20 w-96 h-96 bg-blue-900/10 rounded-full blur-[120px]"></div>
         </div>
-
-        <div>
-            <span>04</span>
-            <h4>Launch</h4>
-            <p>Deploy, test, monitor, and support ongoing growth.</p>
-        </div>
-    </div>
-</section>
-
-
-<!-- AUTHORITY IMAGE -->
-<section class="full-image">
-    <img src="images/structure.jpg" alt="Modern structural architecture">
-</section>
-
-
-<!-- AUTHORITY SECTION -->
-<section class="authority">
-    <div class="container">
-        <h2>Why Work With Us</h2>
-
-        <div class="grid-3">
-            <div>
-                <h4>Engineering-First Approach</h4>
-                <p>Every decision is driven by structure, scalability, and long-term maintainability.</p>
-            </div>
-
-            <div>
-                <h4>Performance-Driven Builds</h4>
-                <p>Optimized code and deployment strategies focused on speed and efficiency.</p>
-            </div>
-
-            <div>
-                <h4>Scalable Infrastructure</h4>
-                <p>Built to grow with your business, not rebuilt when traffic increases.</p>
+        
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 relative z-10">
+            <div class="max-w-3xl">
+                <p class="text-accent-blue font-bold tracking-[0.2em] mb-4 uppercase text-sm">Precision Engineering for Growth</p>
+                <h1 class="text-5xl md:text-7xl font-bold leading-tight mb-8">
+                    Bridging the Gap Between <span class="text-gray-400 italic">Legacy Success</span> and Digital Growth.
+                </h1>
+                <p class="text-xl text-gray-400 mb-10 leading-relaxed">
+                    For over 50 years, your business has thrived offline. We build the architecture to scale it for the next 50 years online. No fluff. Just ROI-focused development.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#contact" class="bg-accent-blue text-center px-8 py-4 text-lg font-semibold hover:bg-blue-700 transition-all flex items-center justify-center group">
+                        Start Your Blueprint
+                        <i data-lucide="arrow-right" class="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform"></i>
+                    </a>
+                    <a href="#process" class="border border-white/20 text-center px-8 py-4 text-lg font-semibold hover:bg-white hover:text-black transition-all">
+                        View The Process
+                    </a>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
+    <section id="process" class="py-24 bg-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-20 fade-in">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">The Web Architect Strategy</h2>
+                <div class="w-20 h-1 bg-accent-blue mx-auto"></div>
+            </div>
 
-<!-- CONTACT -->
-<section class="contact container" id="contact">
-    <h2>Let’s Build It Right</h2>
-    <p>If you're ready to build a structured digital foundation, let's begin.</p>
-    <a href="mailto:launchbypatrick.webdev@gmail.com" class="btn-primary">Email Us</a>
-</section>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-10 border border-white/10 bg-navy-dark hover:border-accent-blue/50 transition-all group fade-in">
+                    <div class="w-12 h-12 mb-6 text-accent-blue">
+                        <i data-lucide="search" class="w-full h-full"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">01. The Audit</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        We don't start with code. We start by analyzing your offline strengths, customer behavior, and operational DNA to find the digital friction points.
+                    </p>
+                </div>
 
+                <div class="p-10 border border-white/10 bg-navy-dark hover:border-accent-blue/50 transition-all group fade-in">
+                    <div class="w-12 h-12 mb-6 text-accent-blue">
+                        <i data-lucide="layout" class="w-full h-full"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">02. The Blueprint</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Architecture matters. We build a high-performance digital footprint—custom websites and platforms tailored to convert your legacy trust into online authority.
+                    </p>
+                </div>
 
-<footer>
-    <div class="container footer-content">
-        <div>
-            <strong>Launch by Patrick</strong><br>
-            The Web Architect
+                <div class="p-10 border border-white/10 bg-navy-dark hover:border-accent-blue/50 transition-all group fade-in">
+                    <div class="w-12 h-12 mb-6 text-accent-blue">
+                        <i data-lucide="rocket" class="w-full h-full"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">03. The Launch</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        A building is useless if no one enters. We deploy scaling strategies to grow your user base and ensure your digital transition yields measurable growth.
+                    </p>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
-            launchbypatrick.webdev@gmail.com
+    <section id="about" class="py-24">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12">
+            <div class="flex flex-col md:flex-row items-center gap-16">
+                <div class="w-full md:w-1/2 fade-in">
+                    <div class="aspect-square bg-white/10 rounded-sm relative overflow-hidden">
+                        <div class="absolute inset-0 flex items-center justify-center text-white/20">
+                            <i data-lucide="user" class="w-32 h-32"></i>
+                        </div>
+                        <div class="absolute bottom-6 left-6 border-l-4 border-accent-blue pl-4">
+                            <p class="font-bold text-xl uppercase tracking-tighter">Patrick</p>
+                            <p class="text-sm text-gray-400 uppercase tracking-widest">Lead Architect</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full md:w-1/2 fade-in">
+                    <h2 class="text-4xl font-bold mb-6 italic">Precision over Hype.</h2>
+                    <p class="text-lg text-gray-400 mb-6 leading-relaxed">
+                        In an industry filled with "gurus" and overnight experts, I focus on the fundamentals of business growth. My background combines technical engineering with a deep respect for established business models.
+                    </p>
+                    <p class="text-lg text-gray-400 mb-8 leading-relaxed">
+                        I don't just "build websites." I build business tools that work while you sleep, designed with the same reliability as a physical skyscraper.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-accent-blue font-bold text-3xl">100%</p>
+                            <p class="text-sm uppercase tracking-widest text-gray-500">Business First</p>
+                        </div>
+                        <div>
+                            <p class="text-accent-blue font-bold text-3xl">Zero</p>
+                            <p class="text-sm uppercase tracking-widest text-gray-500">Tech Jargon</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div>
-            © 2026 All Rights Reserved
+    <section id="contact" class="py-24 bg-accent-blue/5 border-y border-white/5">
+        <div class="max-w-4xl mx-auto px-6 lg:px-12">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold mb-4">Request a Strategy Session</h2>
+                <p class="text-gray-400">Let’s discuss your current operations and how to architect your digital expansion.</p>
+            </div>
+            
+            <form class="space-y-6 fade-in">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Name</label>
+                        <input type="text" class="w-full bg-navy-dark border border-white/10 p-4 focus:border-accent-blue outline-none transition-colors" placeholder="John Doe">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Business Name</label>
+                        <input type="text" class="w-full bg-navy-dark border border-white/10 p-4 focus:border-accent-blue outline-none transition-colors" placeholder="Company Ltd.">
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Email</label>
+                    <input type="email" class="w-full bg-navy-dark border border-white/10 p-4 focus:border-accent-blue outline-none transition-colors" placeholder="john@company.com">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-2">Message</label>
+                    <textarea rows="4" class="w-full bg-navy-dark border border-white/10 p-4 focus:border-accent-blue outline-none transition-colors" placeholder="Tell me about your business goals..."></textarea>
+                </div>
+                <button type="submit" class="w-full bg-accent-blue py-5 font-bold uppercase tracking-[0.2em] hover:bg-blue-700 transition-all">Submit Application</button>
+            </form>
         </div>
-    </div>
-</footer>
+    </section>
 
+    <footer class="py-12 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center opacity-60">
+            <p class="text-sm">&copy; 2026 Launch by Patrick. All rights reserved.</p>
+            <div class="flex space-x-6 mt-6 md:mt-0">
+                <a href="#" class="hover:text-accent-blue transition-colors"><i data-lucide="linkedin"></i></a>
+                <a href="#" class="hover:text-accent-blue transition-colors"><i data-lucide="twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Simple Intersection Observer for fade-in effect
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    </script>
 </body>
 </html>
